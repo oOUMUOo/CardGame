@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4facf74cc6b2cce48bb269675ac22518, type: 3}
+  m_Name: Map Act1
+  m_EditorClassIdentifier: Assembly-CSharp::MapData
+  <NodeBlueprints>k__BackingField:
+  - {fileID: 11400000, guid: 7345cab159c601e48aafe2a7bc779f80, type: 2}
+  - {fileID: 11400000, guid: 93322aab3e364a9459d2e44fa0223055, type: 2}
+  - {fileID: 11400000, guid: bc7caa38862490b4190589ca2a5401d7, type: 2}
+  - {fileID: 11400000, guid: 68889963f324203448481c54ebd7a49e, type: 2}
+  - {fileID: 11400000, guid: 01cacc086fd83fa47b4f352e3aae9003, type: 2}
+  - {fileID: 11400000, guid: b949b7801f9a65d4a841b384f531e8b0, type: 2}
+  <PreBossNodesMin>k__BackingField: 8
+  <PreBossNodesMax>k__BackingField: 8
+  <StartingNodesMin>k__BackingField: 1
+  <StartingNodesMax>k__BackingField: 1
+  <Layers>k__BackingField:
+  - NodeType: 0
+    DistanceFromPreviousLayer: 0
+    NodesFarApartDistance: 0
+    RandomizedNodesProbability: 0
+    RandomizeNodeType: 0
+  - NodeType: 0
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 1
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 3
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 2
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 1
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 2
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 3
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0.5
+    RandomizeNodeType: 1
+  - NodeType: 4
+    DistanceFromPreviousLayer: 3
+    NodesFarApartDistance: 3
+    RandomizedNodesProbability: 0
+    RandomizeNodeType: 0
+  <Orientation>k__BackingField: 0
+  <NodeDistance>k__BackingField: 5
+  <PositionRandomization>k__BackingField: 0.5
+  <NodeTypeRandomization>k__BackingField: 0.72
+  <ExtraPaths>k__BackingField: 2
