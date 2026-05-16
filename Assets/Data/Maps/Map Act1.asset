@@ -24,7 +24,7 @@ MonoBehaviour:
   <StartingNodesMin>k__BackingField: 1
   <StartingNodesMax>k__BackingField: 1
   <Layers>k__BackingField:
-  - NodeType: 0
+  - NodeType: 6
     DistanceFromPreviousLayer: 0
     NodesFarApartDistance: 0
     RandomizedNodesProbability: 0

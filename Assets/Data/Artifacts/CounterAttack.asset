@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a196276a0ea0aed4e87cd00322d48616, type: 3}
   m_Name: CounterAttack
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
-  <Image>k__BackingField: {fileID: 21300000, guid: 0b1c5f80c4ddc9a4dbde9a18530858cb, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: c74bc1f7943b38e46929ed88e9f3d74c, type: 3}
   <ArtifactCondition>k__BackingField:
     rid: 7962597823848382537
   <AutoTargetEffect>k__BackingField:

@@ -3,6 +3,10 @@ using UnityEngine;
 public class HeroSystem : Singleton<HeroSystem>
 {
     [field: SerializeField] public HeroView HeroView {get; private set;}
+    [SerializeField] private string baseSceneName = "BaseScene";
+    [SerializeField] private CombatDeathPanelUI deathPanel;
+
+    private bool runEnded;
 
     void OnEnable()
     {
@@ -17,7 +21,64 @@ public class HeroSystem : Singleton<HeroSystem>
 
     public void Setup(HeroData heroData)
     {
-        HeroView.Setup(heroData);
+        runEnded = false;
+
+        int startingHealth = heroData.Health;
+        if (RunSaveSystem.TryLoadHeroHealth(out int savedHealth))
+        {
+            startingHealth = Mathf.Clamp(savedHealth, 1, heroData.Health);
+        }
+
+        HeroView.Setup(heroData, startingHealth);
+        SaveCurrentHealth();
+    }
+
+    public void SaveCurrentHealth()
+    {
+        if (HeroView == null)
+        {
+            return;
+        }
+
+        RunSaveSystem.SaveHeroHealth(HeroView.CurrentHealth);
+    }
+
+    public void HandleHeroDamaged()
+    {
+        if (runEnded || HeroView == null)
+        {
+            return;
+        }
+
+        if (HeroView.CurrentHealth <= 0)
+        {
+            EndRun();
+            return;
+        }
+
+        SaveCurrentHealth();
+    }
+
+    private void EndRun()
+    {
+        if (runEnded)
+        {
+            return;
+        }
+
+        runEnded = true;
+        SaveCurrentHealth();
+
+        if (deathPanel != null)
+        {
+            deathPanel.Show();
+            return;
+        }
+
+        if (!RunAbortUtility.TryQuitRunAndLoadScene(baseSceneName))
+        {
+            runEnded = false;
+        }
     }
 
     //Reactions

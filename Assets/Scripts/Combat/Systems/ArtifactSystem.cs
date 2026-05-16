@@ -7,6 +7,17 @@ public class ArtifactSystem : Singleton<ArtifactSystem>
 
     private readonly List<Artifact> artifacts = new();
 
+    private void OnDisable()
+    {
+        // Важно снимать подписки артефактов перед выгрузкой сцены боя,
+        // иначе реакции копятся между боями.
+        foreach (var artifact in artifacts)
+        {
+            artifact.OnRemove();
+        }
+        artifacts.Clear();
+    }
+
     public void AddArtifact(Artifact artifact)
     {
         artifacts.Add(artifact);

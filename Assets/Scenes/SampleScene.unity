@@ -2848,6 +2848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchSetupSystem
   heroData: {fileID: 11400000, guid: 378386d7b0afe7745be29b068764fb87, type: 2}
+  deckBuildCatalog: {fileID: 11400000, guid: c9f0a1b2d3e45f6a7b8c9d0e1f2a3b4c, type: 2}
   artifactData: {fileID: 11400000, guid: 7525a13be89c0d94ba9fcabf17ef6781, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: 32e6f95f572f2f74c88b5af80b358bdb, type: 2}

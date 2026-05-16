@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4134112314891310351}
   - component: {fileID: 1636031055166662550}
-  - component: {fileID: 8243489421879734372}
+  - component: {fileID: 3236581520608761473}
   m_Layer: 0
   m_Name: MapNodeView
   m_TagString: Untagged
@@ -173,12 +173,12 @@ MonoBehaviour:
   availabilityIndicator: {fileID: 3781225028409197672}
   currentIndicator: {fileID: 0}
   visitedIndicator: {fileID: 0}
-  availableColor: {r: 0.082280174, g: 0.4056604, b: 0.19209133, a: 1}
-  lockedColor: {r: 0.3584906, g: 0.049038816, b: 0.08190325, a: 1}
+  availableColor: {r: 0.05490196, g: 0.32156864, b: 0.05882353, a: 1}
+  lockedColor: {r: 0.30980393, g: 0.05490196, b: 0.0627451, a: 1}
   hoverScaleMultiplier: 1.12
   currentScaleMultiplier: 1.2
   scaleTweenDuration: 0.15
---- !u!65 &8243489421879734372
+--- !u!65 &3236581520608761473
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,7 +279,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 905472d6c9f37f942b2f312a68b5c642, type: 3}
-  m_Color: {r: 0.735849, g: 0.5189715, b: 0.2742079, a: 0.77254903}
+  m_Color: {r: 0.041117836, g: 0.26415092, b: 0.05128526, a: 0.77254903}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

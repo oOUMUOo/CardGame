@@ -56,6 +56,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4108807822253896494}
     m_Modifications:
+    - target: {fileID: 377014659157374881, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 377014659157374881, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375452883125662187, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375452883125662187, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375452883125662187, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375452883125662187, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711029320771384735, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362430509647199411, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: burnSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e40b1f7c4596b7a488ff0792d2948e33, type: 3}
+    - target: {fileID: 2362430509647199411, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: armorSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64a765b52f9ea0b4c820710d266f477f, type: 3}
+    - target: {fileID: 2582218920596486084, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 69e07cda1b2ab0b468cb9e79a7265c8b, type: 3}
+    - target: {fileID: 3655843425937657456, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f8a9b9cbd915406408cb5d873e657d3f, type: 2}
+    - target: {fileID: 3655843425937657456, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2231918239667364310, guid: f8a9b9cbd915406408cb5d873e657d3f, type: 2}
+    - target: {fileID: 3655843425937657456, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4885339119870769950, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -100,6 +152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatantViewBase
       objectReference: {fileID: 0}
+    - target: {fileID: 7801953548362563247, guid: 1d1c8cfd1c40a7e469ddb8b6a7648f8f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2231918239667364310, guid: f8a9b9cbd915406408cb5d873e657d3f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Сохранение прогресса карты в PlayerPrefs. 
+/// Сохранение прогресса карты в PlayerPrefs. Методы сохранения статические — доступны из любой сцены (например после боя).
 /// </summary>
 public class MapSaveSystem : MonoBehaviour
 {
-    private const string SaveKey = "MapSaveData";
+    private const string SaveBaseKey = "MapSaveData";
+    private static string SaveKey => SaveSlotSystem.MakeSlotKey(SaveBaseKey);
 
     public static bool TryLoad(out MapSaveData data)
     {

@@ -15,6 +15,10 @@ public class MapSetupSystem : MonoBehaviour
         else
         {
             MapSaveSystem.ClearSave();
+            RunSaveSystem.ClearHeroHealth();
+            RunSaveSystem.ClearGold();
+            RunRareOffsetSystem.Clear();
+            RunDeckBonusCardsSystem.Clear();
             GenerateMapGA generateMapGA = new(mapData);
             ActionSystem.Instance.Perform(generateMapGA);
         }

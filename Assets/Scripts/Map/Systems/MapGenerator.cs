@@ -12,7 +12,7 @@ public static class MapGenerator
         
         Debug.Log($"Generating map with {totalLayers} layers");
         
-        // Шаг 1: Создаем все слои и узлы
+        // Шаг 1: Создаём все слои и узлы
         for (int layerIndex = 0; layerIndex < totalLayers; layerIndex++)
         {
             List<MapNode> layer = new();
@@ -123,7 +123,7 @@ public static class MapGenerator
         return new Vector3(yOffset, xOffset, 0);
     }
     
-    // Гарантирует связность в обе стороны
+    // ← ИСПРАВЛЕННАЯ ФУНКЦИЯ: Гарантирует связность в обе стороны
     private static void ConnectAllLayers(Map map)
     {
         for (int i = 0; i < map.LayerCount - 1; i++)
@@ -219,7 +219,7 @@ public static class MapGenerator
         return closest;
     }
     
-    // Безопасное удаление пересечений
+    // ← ИСПРАВЛЕННАЯ ФУНКЦИЯ: Безопасное удаление пересечений
     private static void EliminateCrossNodes(Map map)
     {
         for (int i = 0; i < map.LayerCount - 1; i++)
@@ -250,16 +250,16 @@ public static class MapGenerator
                             
                             if (LinesIntersect(node1.Position, conn1.Position, node2.Position, conn2.Position))
                             {
-                                // Проверяем, не нарушим ли связность
+                                // ← ВАЖНО: Проверяем, не нарушим ли связность
                                 bool canRemove = true;
                                 
-                                // Проверяем node1 - останется ли у него выход справа?
+                                // Проверяем node1 - останется ли у него выход вперёд?
                                 if (node1.ConnectedNodes.Count <= 1)
                                 {
                                     canRemove = false;
                                 }
                                 
-                                // Проверяем conn1 - останется ли у него вход слева?
+                                // Проверяем conn1 - останется ли у него вход сзади?
                                 int incomingConnections = 0;
                                 foreach (var prevNode in currentLayer)
                                 {
@@ -320,7 +320,7 @@ public static class MapGenerator
         }
     }
     
-    // Проверяем, что все узлы достижимы от старта
+    // ← НОВАЯ ФУНКЦИЯ: Проверяет, что все узлы достижимы от старта
     private static void EnsureAllNodesReachable(Map map)
     {
         // Для каждого слоя кроме первого

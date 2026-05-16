@@ -4,6 +4,7 @@ using UnityEngine;
 public class MatchSetupSystem : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
+    [SerializeField] private DeckBuildCatalog deckBuildCatalog;
     [SerializeField] private ArtifactData artifactData;
     [SerializeField] private List<EnemyData> enemyDatas;
 
@@ -11,7 +12,19 @@ public class MatchSetupSystem : MonoBehaviour
     {
         HeroSystem.Instance.Setup(heroData);
         EnemySystem.Instance.Setup(enemyDatas);
-        CardSystem.Instance.Setup(heroData.Deck);
+        var deck = DeckPresetSaveSystem.ResolveDeckOrFallback(deckBuildCatalog, heroData);
+        if (deckBuildCatalog != null)
+        {
+            foreach (var name in RunDeckBonusCardsSystem.GetNames())
+            {
+                if (deckBuildCatalog.TryGetByAssetName(name, out var bonus))
+                {
+                    deck.Add(bonus);
+                }
+            }
+        }
+
+        CardSystem.Instance.Setup(deck);
         ArtifactSystem.Instance.AddArtifact(new Artifact(artifactData));
         //
         DrawCardsGA drawCardsGA = new(5);

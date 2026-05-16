@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1f844d45e7f6d4898fad055c13895c, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  <Image>k__BackingField: {fileID: 21300000, guid: 270ab45019eae9141b72d0f7159f5ce5, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 346d66ea5f882dd489f4db944906a37e, type: 3}
   <Health>k__BackingField: 15
   <AttackPower>k__BackingField: 4

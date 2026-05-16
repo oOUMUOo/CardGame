@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <Title>k__BackingField: "\u041F\u043E\u043B\u0443\u0447\u0438 \u043A\u0430\u0440\u0442\u0443"
   <Description>k__BackingField: "\u041F\u043E\u043B\u0443\u0447\u0438 2 \u043A\u0430\u0440\u0442\u044B"
+  <Rarity>k__BackingField: 0
   <Mana>k__BackingField: 1
-  <Image>k__BackingField: {fileID: 21300000, guid: 989beea3e1a0bcb4b94903efe6d4b656, type: 3}
+  <PurchasePrice>k__BackingField: 0
+  <SellingPrice>k__BackingField: 50
+  <Image>k__BackingField: {fileID: 21300000, guid: 7ad5d5846c9e9244394e7bbc8666558b, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:

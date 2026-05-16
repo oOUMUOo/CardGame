@@ -10,6 +10,8 @@ public class ActionSystem : Singleton<ActionSystem>
     private static Dictionary<Type, List<Action<GameAction>>> preSubs = new();
     private static Dictionary<Type, List<Action<GameAction>>> postSubs = new();
     private static Dictionary<Type, Func<GameAction, IEnumerator>> performers = new();
+    private static Dictionary<Type, Dictionary<Delegate, Action<GameAction>>> preWrappers = new();
+    private static Dictionary<Type, Dictionary<Delegate, Action<GameAction>>> postWrappers = new();
     
     public void Perform(GameAction action, System.Action OnPerformFinished = null)
     {
@@ -90,25 +92,57 @@ public class ActionSystem : Singleton<ActionSystem>
     public static void SubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
     {
         Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
+        Dictionary<Type, Dictionary<Delegate, Action<GameAction>>> wrappers = timing == ReactionTiming.PRE ? preWrappers : postWrappers;
+        Type type = typeof(T);
+
+        if (!subs.ContainsKey(type))
+        {
+            subs.Add(type, new());
+        }
+
+        if (!wrappers.ContainsKey(type))
+        {
+            wrappers.Add(type, new());
+        }
+
+        if (wrappers[type].ContainsKey(reaction))
+        {
+            return;
+        }
+
         void wrappedReaction(GameAction action) => reaction((T)action);
-        if (subs.ContainsKey(typeof(T)))
-        {
-            subs[typeof(T)].Add(wrappedReaction);
-        }
-        else
-        {
-            subs.Add(typeof(T), new());
-            subs[typeof(T)].Add(wrappedReaction);
-        }
+        wrappers[type].Add(reaction, wrappedReaction);
+        subs[type].Add(wrappedReaction);
     }
 
     public static void UnsubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
     {
         Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
-        if (subs.ContainsKey(typeof(T)))
+        Dictionary<Type, Dictionary<Delegate, Action<GameAction>>> wrappers = timing == ReactionTiming.PRE ? preWrappers : postWrappers;
+        Type type = typeof(T);
+
+        if (!subs.ContainsKey(type) || !wrappers.ContainsKey(type))
         {
-            void wrappedReaction(GameAction action) => reaction((T)action);
-            subs[typeof(T)].Remove(wrappedReaction);
+            return;
+        }
+
+        if (!wrappers[type].ContainsKey(reaction))
+        {
+            return;
+        }
+
+        Action<GameAction> wrappedReaction = wrappers[type][reaction];
+        subs[type].Remove(wrappedReaction);
+        wrappers[type].Remove(reaction);
+
+        if (subs[type].Count == 0)
+        {
+            subs.Remove(type);
+        }
+
+        if (wrappers[type].Count == 0)
+        {
+            wrappers.Remove(type);
         }
     }
 

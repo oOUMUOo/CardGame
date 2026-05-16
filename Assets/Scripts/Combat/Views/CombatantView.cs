@@ -13,9 +13,10 @@ public class CombatantView : MonoBehaviour
     public int CurrentHealth {get; private set;}
     private Dictionary<StatusEffectType, int> statusEffects = new();
 
-    protected void SetupBase(int health, Sprite image)
+    protected void SetupBase(int maxHealth, Sprite image, int currentHealth = -1)
     {
-        MaxHealth = CurrentHealth = health;
+        MaxHealth = maxHealth;
+        CurrentHealth = currentHealth < 0 ? maxHealth : Mathf.Clamp(currentHealth, 0, maxHealth);
         spriteRenderer.sprite = image;
         UpdateHealthText();
     }

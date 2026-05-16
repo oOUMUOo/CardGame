@@ -9,23 +9,29 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 96a61aac4760f54409aed71729c78f5e
+  - enabled: 1
+    path: Assets/Scenes/BaseScene.unity
+    guid: 36fce92c24392b14c990fe7d2c78e8c0
+  - enabled: 1
     path: Assets/Scenes/MapScene.unity
     guid: 35b38d0cebce1cf4eb9b7d5df07f8fc3
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: a06556da16255d844abdcfad4638be3c
   - enabled: 1
-    path: Assets/Scenes/EventScene.unity
-    guid: ff332c64e5345da40a57d8be5f45d600
-  - enabled: 1
     path: Assets/Scenes/MerchantScene.unity
     guid: df345afff2ca3624aa4dfdbec70ad79c
   - enabled: 1
     path: Assets/Scenes/RestScene.unity
     guid: b62058de2d70282448bb99f89e4805fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TreasureScene.unity
     guid: a28fc7cb822f7e24792f2f8d680b6134
+  - enabled: 0
+    path: Assets/Scenes/EventScene.unity
+    guid: ff332c64e5345da40a57d8be5f45d600
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

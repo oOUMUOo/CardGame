@@ -8,6 +8,9 @@ public class CardSystem : Singleton<CardSystem>
     [SerializeField] private HandView handView;
     [SerializeField] private Transform drawPilePoint;
     [SerializeField] private Transform discardPilePoint;
+    [SerializeField] private CardPileButtonUI drawPileUI;
+    [SerializeField] private CardPileButtonUI discardPileUI;
+    [SerializeField] private CardPilePanelUI cardPilePanelUI;
 
     private readonly List<Card> drawPile = new();
     private readonly List<Card> discardPile = new();
@@ -31,11 +34,18 @@ public class CardSystem : Singleton<CardSystem>
 
     public void Setup(List<CardData> deckData)
     {
+        drawPile.Clear();
+        discardPile.Clear();
+        hand.Clear();
+
         foreach (var cardData in deckData)
         {
             Card card = new(cardData);
             drawPile.Add(card);
         }
+
+        SetupPileUI();
+        RefreshPileUI();
     }
 
     //Performers
@@ -44,18 +54,21 @@ public class CardSystem : Singleton<CardSystem>
     {
         int actualAmount = Mathf.Min(drawCardsGA.Amount, drawPile.Count);
         int notDrawnAmount = drawCardsGA.Amount - actualAmount;
-        for (int i = 0; i< actualAmount; i++)
+        for (int i = 0; i < actualAmount; i++)
         {
             yield return DrawCard();
         }
+
         if (notDrawnAmount > 0)
         {
             RefillDeck();
-            for (int i = 0; i< notDrawnAmount; i++)
+            for (int i = 0; i < notDrawnAmount; i++)
             {
                 yield return DrawCard();
             }
         }
+
+        RefreshPileUI();
     }
 
     private IEnumerator DiscardAllCardsPerformer(DiscardAllCardsGA discardAllCardsGA)
@@ -65,7 +78,9 @@ public class CardSystem : Singleton<CardSystem>
             CardView cardView = handView.RemoveCard(card);
             yield return DiscardCard(cardView);
         }
+
         hand.Clear();
+        RefreshPileUI();
     }
 
     private IEnumerator PlayCardPerformer(PlayCardGA playCardGA)
@@ -88,6 +103,8 @@ public class CardSystem : Singleton<CardSystem>
             PerformEffectGA performEffectGA = new(effectWrapper.Effect, targets);
             ActionSystem.Instance.AddReaction(performEffectGA);
         }
+
+        RefreshPileUI();
     }  
 
     //Helpers
@@ -95,23 +112,87 @@ public class CardSystem : Singleton<CardSystem>
     private IEnumerator DrawCard()
     {
         Card card = drawPile.Draw();
+        if (card == null)
+        {
+            yield break;
+        }
+
         hand.Add(card);
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
         yield return handView.AddCard(cardView);
+        RefreshPileUI();
     }
 
     private void RefillDeck()
     {
+        if (drawPile.Count > 0 || discardPile.Count == 0)
+        {
+            return;
+        }
+
         drawPile.AddRange(discardPile);
         discardPile.Clear();
+        RefreshPileUI();
     }
 
     private IEnumerator DiscardCard(CardView cardView)
     {
+        if (cardView == null || cardView.Card == null)
+        {
+            yield break;
+        }
+
         discardPile.Add(cardView.Card);
         cardView.transform.DOScale(Vector3.zero, 0.15f);
         Tween tween = cardView.transform.DOMove(discardPilePoint.position, 0.15f);
         yield return tween.WaitForCompletion();
         Destroy(cardView.gameObject);
+        RefreshPileUI();
+    }
+
+    private void SetupPileUI()
+    {
+        if (drawPileUI != null)
+        {
+            drawPileUI.Setup("Добор", OpenDrawPile);
+        }
+
+        if (discardPileUI != null)
+        {
+            discardPileUI.Setup("Сброс", OpenDiscardPile);
+        }
+    }
+
+    private void RefreshPileUI()
+    {
+        if (drawPileUI != null)
+        {
+            drawPileUI.SetCount(drawPile.Count);
+        }
+
+        if (discardPileUI != null)
+        {
+            discardPileUI.SetCount(discardPile.Count);
+        }
+    }
+
+    private void OpenDrawPile()
+    {
+        if (cardPilePanelUI == null)
+        {
+            return;
+        }
+
+        cardPilePanelUI.Show("Стопка добора", drawPile);
+    }
+
+    private void OpenDiscardPile()
+    {
+        if (cardPilePanelUI == null)
+        {
+            return;
+        }
+
+        cardPilePanelUI.Show("Стопка сброса", discardPile);
     }
 }

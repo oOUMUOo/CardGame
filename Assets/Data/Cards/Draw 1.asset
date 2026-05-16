@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af3bb5e651e13242b4bfdbd18a3ed90, type: 3}
+  m_Name: Draw 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  <Title>k__BackingField: "\u041F\u043E\u043B\u0443\u0447\u0438 \u043A\u0430\u0440\u0442\u04432"
+  <Description>k__BackingField: "\u041F\u043E\u043B\u0443\u0447\u0438 3 \u043A\u0430\u0440\u0442\u044B"
+  <Rarity>k__BackingField: 2
+  <Mana>k__BackingField: 2
+  <PurchasePrice>k__BackingField: 10
+  <SellingPrice>k__BackingField: 10
+  <Image>k__BackingField: {fileID: 21300000, guid: 7ad5d5846c9e9244394e7bbc8666558b, type: 3}
+  <ManualTargetEffect>k__BackingField:
+    rid: -2
+  <OtherEffects>k__BackingField:
+  - <TargetMode>k__BackingField:
+      rid: 7962597686703030347
+    <Effect>k__BackingField:
+      rid: 7962597686703030348
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 7962597686703030347
+      type: {class: NoTM, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 7962597686703030348
+      type: {class: DrawCardsEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 3

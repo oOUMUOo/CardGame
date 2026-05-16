@@ -24,6 +24,10 @@ public class DamageSystem : MonoBehaviour
             }
 
             target.Damage(dealDamageGA.Amount);
+            if (target is HeroView)
+            {
+                HeroSystem.Instance.HandleHeroDamaged();
+            }
 
             if (target == null)
             {
@@ -47,8 +51,7 @@ public class DamageSystem : MonoBehaviour
                 }
                 else
                 {
-                    //GAME OVER logic
-                    //Open GAME OVER scene
+                    HeroSystem.Instance.HandleHeroDamaged();
                 }
             }
         }

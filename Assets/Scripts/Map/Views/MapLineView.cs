@@ -38,6 +38,6 @@ public class MapLineView : MonoBehaviour
 
     public void SetVisited(bool visited)
     {
-        // Можно добавить изменение цвета линии или тп.
+        // Можно добавить изменение цвета линии при необходимости.
     }
 }

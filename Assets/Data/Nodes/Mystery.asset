@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785a47ef2b4e987438cf5824d7657a48, type: 3}
   m_Name: Mystery
   m_EditorClassIdentifier: Assembly-CSharp::NodeBlueprintData
-  <Image>k__BackingField: {fileID: 21300000, guid: cd54fccc0bf4cf140bf0e57786c41c05, type: 3}
+  <Image>k__BackingField: {fileID: 21300054, guid: 09e4c6a7d75923945afe43953ef58ad2, type: 3}
   <NodeType>k__BackingField: 5

@@ -66,8 +66,18 @@ public class EnemySystem : Singleton<EnemySystem>
         }
 
         EnemyView attacker = attackHeroGA.Attacker;
+        if (attacker == null || attacker.CurrentHealth <= 0)
+        {
+            yield break;
+        }
+
         Tween tween = attacker.transform.DOMoveX(attacker.transform.position.x - 1f, 0.15f);
         yield return tween.WaitForCompletion();
+
+        if (attacker == null || attacker.CurrentHealth <= 0)
+        {
+            yield break;
+        }
 
         attacker.transform.DOMoveX(attacker.transform.position.x + 1f, 0.25f);
         DealDamageGA dealDamageGA = new(attacker.AttackPower, new() { HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
